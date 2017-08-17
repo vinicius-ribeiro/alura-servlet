@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sun.org.apache.xml.internal.serialize.Printer;
 
@@ -30,10 +31,9 @@ public class Login extends HttpServlet {
 		if(usuario == null) {
 			writer.println("<html><body>Usuário Inválido!</body></html>");
 		}
-		else {
-			Cookie cookie = new Cookie("usuario.logado", usuario.getEmail());
-			cookie.setMaxAge(10 * 60);
-			resp.addCookie(cookie);
+		else {			
+			HttpSession session = req.getSession();
+			session.setAttribute("usuarioLogado", usuario);
 			writer.print("<html><body>Usuário Logado :> " + usuario.getEmail() + "</body></html>");
 		}
 		
