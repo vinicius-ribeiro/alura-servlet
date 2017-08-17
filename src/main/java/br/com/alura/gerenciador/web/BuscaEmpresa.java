@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.Empresa;
 import br.com.alura.gerenciador.dao.EmpresaDAO;
 
-
-@WebServlet(urlPatterns="/busca")
 public class BuscaEmpresa implements Tarefa {
 	
 	@Override

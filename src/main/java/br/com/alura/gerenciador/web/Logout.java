@@ -16,13 +16,14 @@ import javax.servlet.http.HttpSession;
 public class Logout implements Tarefa {
 	
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) {
-		HttpSession session = req.getSession();
-		session.removeAttribute("usuarioLogado");	
-		//session.invalidate();
+    public String executa(HttpServletRequest request,
+            HttpServletResponse response) {
 
-		return "/WEB-INF/paginas/logout.html";
-	}
-	
+        HttpSession session = request.getSession();
+        session.removeAttribute("usuarioLogado");
+
+        return "/WEB-INF/paginas/logout.html";
+
+    }
 
 }
